@@ -5,7 +5,7 @@ Protected Class RBConstant
 		  dim def as string
 		  
 		  select case aType
-		  case RBConstantDefinitions.kString 
+		  case RBConstantDefinitions.kString
 		    def = ""
 		  case RBConstantDefinitions.kBoolean
 		    def = "false"

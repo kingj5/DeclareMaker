@@ -35,12 +35,12 @@ Protected Class RBProperty
 		  '<Property Flags="37" [Shared="true"]>aProperty As String</Property>
 		  s = ""
 		  
-		  select case mScope 
+		  select case mScope
 		  case RBConstantDefinitions.kPublic
 		    s = s + " <Property>"
 		  case RBConstantDefinitions.kProtected
 		    s = s + " <Property Flags=" + chr(34)+ format(RBConstantDefinitions.kProtected,"#")+ CHR(34) + ">"
-		  case RBConstantDefinitions.kPrivate 
+		  case RBConstantDefinitions.kPrivate
 		    s = s + " <Property Flags=" + chr(34)+ format(RBConstantDefinitions.kPrivate,"#")+ CHR(34) + ">"
 		  end Select
 		  

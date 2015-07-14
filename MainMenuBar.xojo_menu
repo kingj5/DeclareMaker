@@ -25,6 +25,36 @@ Begin Menu MainMenuBar
          AutoEnable = True
          Visible = True
       End
+      Begin MenuItem ManualItem
+         SpecialMenu = 0
+         Text = "Open Manual Entry Window"
+         Index = -2147483648
+         ShortcutKey = "D"
+         Shortcut = "Cmd+D"
+         MenuModifier = True
+         AutoEnable = True
+         Visible = True
+      End
+      Begin MenuItem DelagateItem
+         SpecialMenu = 0
+         Text = "Open Delegate Window"
+         Index = -2147483648
+         ShortcutKey = "L"
+         Shortcut = "Cmd+L"
+         MenuModifier = True
+         AutoEnable = True
+         Visible = True
+      End
+      Begin MenuItem FileOpenclipboardwindow
+         SpecialMenu = 0
+         Text = "Open clipboard window"
+         Index = -2147483648
+         ShortcutKey = "Y"
+         Shortcut = "Cmd+Y"
+         MenuModifier = True
+         AutoEnable = True
+         Visible = True
+      End
    End
    Begin MenuItem EditMenu
       SpecialMenu = 0

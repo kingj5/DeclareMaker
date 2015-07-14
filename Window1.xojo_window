@@ -107,7 +107,6 @@ Begin Window Window1
       Selectable      =   False
       TabIndex        =   2
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Drop Files to convert to classes here:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -142,7 +141,6 @@ Begin Window Window1
       Selectable      =   False
       TabIndex        =   3
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Included Classes:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -293,8 +291,34 @@ End
 
 
 	#tag MenuHandler
+		Function DelagateItem() As Boolean Handles DelagateItem.Action
+			dim d as new DelegateCreation
+			d.Show
+			Return True
+			
+		End Function
+	#tag EndMenuHandler
+
+	#tag MenuHandler
+		Function FileOpenclipboardwindow() As Boolean Handles FileOpenclipboardwindow.Action
+			CopyToClip.Show
+			Return True
+			
+		End Function
+	#tag EndMenuHandler
+
+	#tag MenuHandler
 		Function FileSave() As Boolean Handles FileSave.Action
 			save
+			Return True
+			
+		End Function
+	#tag EndMenuHandler
+
+	#tag MenuHandler
+		Function ManualItem() As Boolean Handles ManualItem.Action
+			dim m as new ManualCreation
+			m.Show
 			Return True
 			
 		End Function
@@ -309,7 +333,7 @@ End
 		    proj.addModule cls(i).getClass
 		  next
 		  proj.addModule AdditionalModule
-		  proj.addModule NSObject
+		  proj.addModule NSObjectManual
 		  
 		  dim f as FolderItem = GetSaveFolderItem("public/text","GENERATED CLASSES.txt")
 		  if f = nil then Return
@@ -353,7 +377,7 @@ End
 		        MsgBox "Invalid file.  Please make sure the file is an html download of the apple docs and try again"
 		      end try
 		    loop until not obj.NextItem
-		  end if 
+		  end if
 		End Sub
 	#tag EndEvent
 	#tag Event
