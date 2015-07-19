@@ -42,6 +42,7 @@ Class=OBJCClassDelegate;DeclareMakerDelegate/OBJCClassDelegate.xojo_code;&h623AA
 Class=OBJCSelectorDelegate;DeclareMakerDelegate/OBJCSelectorDelegate.xojo_code;&h26D6EFFF;&h20168FFF;false
 Window=DelegateCreation;DelegateCreation.xojo_window;&h43E8EFFF;&h0;false
 Window=CopyToClip;CopyToClip.xojo_window;&h5BB3EFFF;&h0;false
+Module=Globals;Globals.xojo_code;&h6DD607FF;&h0;false
 DefaultWindow=Window1
 AppMenuBar=MainMenuBar
 MajorVersion=1

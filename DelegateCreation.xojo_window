@@ -517,7 +517,7 @@ End
 	#tag Event
 		Sub Action()
 		  
-		  dim sel as String = Selector.Text
+		  dim sel as String = Clean(Selector.Text)
 		  
 		  //- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		  

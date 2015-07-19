@@ -90,7 +90,6 @@ Begin Window ManualCreation
       Selectable      =   False
       TabIndex        =   1
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Class Name:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -175,7 +174,6 @@ Begin Window ManualCreation
       Selectable      =   False
       TabIndex        =   3
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Superclass:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -279,7 +277,6 @@ Begin Window ManualCreation
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Prop name:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -314,7 +311,6 @@ Begin Window ManualCreation
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Prop type:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -349,7 +345,6 @@ Begin Window ManualCreation
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Special Getter:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -667,7 +662,6 @@ Begin Window ManualCreation
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Selector:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -746,7 +740,6 @@ Begin Window ManualCreation
       Selectable      =   False
       TabIndex        =   7
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Lib Name:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -924,7 +917,7 @@ End
 	#tag Event
 		Sub Action()
 		  
-		  dim sel as String = Selector.Text
+		  dim sel as String = Clean(Selector.Text)
 		  
 		  //- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		  
@@ -966,7 +959,7 @@ End
 		    
 		    
 		    // 0
-		    //only return type and first selector 
+		    //only return type and first selector
 		    tmp2 = tmp(0).Split(")")
 		    selSubparts.Append tmp2(1) + ":"
 		    
@@ -985,7 +978,7 @@ End
 		      selSubparts.Append tmp2(1) + ":"
 		    next
 		    
-		    //tmp.Ubound 
+		    //tmp.Ubound
 		    //last will only contain a param name/type
 		    tmp(tmp.Ubound) = tmp(tmp.Ubound).Replace("(","")
 		    tmp(tmp.Ubound) = tmp(tmp.Ubound).Replace(" *","")

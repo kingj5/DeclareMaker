@@ -16,7 +16,9 @@ Protected Class OBJCClass
 		  
 		  tmp = allText.Split("<code class=""code-voice Objective-C"">")
 		  tmp = tmp(1).Split("</code>")
-		  tmp = tmp(0).Split(" ")
+		  tmp = tmp(0).Split("</span>")
+		  tmp.Remove tmp.Ubound
+		  tmp = tmp(tmp.Ubound).Split(">")
 		  dim libName as String = tmp(1).Replace(";","") + "Lib"
 		  
 		  dim chunks() as String= allText.Split("<h4>Declaration</h4>")
@@ -177,7 +179,7 @@ Protected Class OBJCClass
 		  '"<code class=""code voice"">
 		  '
 		  '
-		  '"<span class=""kt"">" //return type span in html 
+		  '"<span class=""kt"">" //return type span in html
 		  '
 		  '"nl" //selector sub part
 		  '
@@ -212,7 +214,7 @@ Protected Class OBJCClass
 		    returnType = removeA(tmp(0).Trim).Replace(" *","")
 		    
 		    //get selector subparts
-		    dim selSubparts() as string 
+		    dim selSubparts() as string
 		    
 		    dim tmp2() as String
 		    tmp = tmpStr.Split("<span class=""nl"">")
@@ -232,7 +234,7 @@ Protected Class OBJCClass
 		    tmp.Remove 0 //leading chars, not important info
 		    for i as Integer = 0 to tmp.Ubound
 		      tmp2 = tmp(i).Split("</span>")
-		      selSubpartTypes.Append removeA(tmp2(0).Trim).Replace(" *","")
+		      selSubpartTypes.Append Clean(removeA(tmp2(0).Trim)).Replace(" *","")
 		    next
 		    
 		    //get selector parameter names
@@ -259,7 +261,7 @@ Protected Class OBJCClass
 		    tmp.Remove 0 //leading chars, not important info
 		    tmp = Join(tmp,"").Split("</span>")
 		    if tmp.Ubound = -1 then Break
-		    propertyType = removeSpan(removeA(tmp(0).Trim))
+		    propertyType = Clean(removeSpan(removeA(tmp(0).Trim)))
 		    
 		    //property name
 		    dim propertyName as String
