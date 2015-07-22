@@ -13,13 +13,21 @@ Protected Class OBJCClass
 		  clsName = tmp(0)
 		  
 		  'superCls = getSuperclass(allText)
+		  dim libName as String
 		  
-		  tmp = allText.Split("<code class=""code-voice Objective-C"">")
-		  tmp = tmp(1).Split("</code>")
-		  tmp = tmp(0).Split("</span>")
-		  tmp.Remove tmp.Ubound
-		  tmp = tmp(tmp.Ubound).Split(">")
-		  dim libName as String = tmp(1).Replace(";","") + "Lib"
+		  Try
+		    tmp = allText.Split("<code class=""code-voice Objective-C"">")
+		    tmp = tmp(1).Split("</code>")
+		    tmp = tmp(0).Split("</span>")
+		    tmp.Remove tmp.Ubound
+		    tmp = tmp(tmp.Ubound).Split(">")
+		    libName = tmp(1).Replace(";","") + "Lib"
+		  Catch err as OutOfBoundsException
+		    tmp = allText.Split("<code class=""code-voice Objective-C"">")
+		    tmp = tmp(1).Split("</code>")
+		    tmp = tmp(0).Split(" ")
+		    libName = tmp(1).Replace(";","") + "Lib"
+		  end try
 		  
 		  dim chunks() as String= allText.Split("<h4>Declaration</h4>")
 		  chunks.Remove 0 //first chunk is unimportant data about the class itself
