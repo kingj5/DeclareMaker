@@ -4,7 +4,7 @@ Protected Module Globals
 		Function Clean(s as String) As String
 		  //fixes problems associated with the introduction of nullable, nonnull, and specified types in NSDictionary
 		  dim t as Text = s.ToText
-		  t = t.ReplaceAll("_Nullable","").ReplaceAll("_Nonnull","").ReplaceAll("nonnull","").ReplaceAll("nullable","")
+		  t = t.ReplaceAll("nonnull","").ReplaceAll("nullable","").ReplaceAll("_Nullable","").ReplaceAll("_Nonnull","")
 		  t = t.RemoveBetween("<",">").RemoveBetween("&lt;","&gt;")
 		  
 		  
